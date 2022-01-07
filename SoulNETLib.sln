@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoulNETLib", "SoulNETLib\SoulNETLib.csproj", "{7BAA442D-8EDF-4BAD-88AD-6228EA8E73F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoulNETLibTests", "SoulNETLibTests\SoulNETLibTests.csproj", "{29512B99-5527-468B-87F6-77BD15976724}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoulNETLib.EFCore", "SoulNETLib.EFCore\SoulNETLib.EFCore.csproj", "{36FFA292-A09C-4653-94CD-353642031AE9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoulNETLib.EFCoreTests", "SoulNETLib.EFCoreTests\SoulNETLib.EFCoreTests.csproj", "{79D643D8-3100-4CB6-A480-B39A752EFBF5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5076F8F5-082E-4B63-96EC-2BB53190C7C5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SoulNETLibTests.Common", "SoulNETLibTests.Common\SoulNETLibTests.Common.csproj", "{91E44358-6333-4F00-9D8E-6486A8B24D73}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestConsoleApp", "TestConsoleApp\TestConsoleApp.csproj", "{48249E63-800C-488B-AA58-E32F05255CC6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{D71304E6-3BB2-4744-B9DC-061AE747FDA7}"
+	ProjectSection(SolutionItems) = preProject
+		CODE_OF_CONDUCT.md = CODE_OF_CONDUCT.md
+		CONTRIBUTING.md = CONTRIBUTING.md
+		LICENSE = LICENSE
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7BAA442D-8EDF-4BAD-88AD-6228EA8E73F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BAA442D-8EDF-4BAD-88AD-6228EA8E73F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BAA442D-8EDF-4BAD-88AD-6228EA8E73F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BAA442D-8EDF-4BAD-88AD-6228EA8E73F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{29512B99-5527-468B-87F6-77BD15976724}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29512B99-5527-468B-87F6-77BD15976724}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29512B99-5527-468B-87F6-77BD15976724}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29512B99-5527-468B-87F6-77BD15976724}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36FFA292-A09C-4653-94CD-353642031AE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36FFA292-A09C-4653-94CD-353642031AE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36FFA292-A09C-4653-94CD-353642031AE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36FFA292-A09C-4653-94CD-353642031AE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79D643D8-3100-4CB6-A480-B39A752EFBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79D643D8-3100-4CB6-A480-B39A752EFBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79D643D8-3100-4CB6-A480-B39A752EFBF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79D643D8-3100-4CB6-A480-B39A752EFBF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E44358-6333-4F00-9D8E-6486A8B24D73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E44358-6333-4F00-9D8E-6486A8B24D73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E44358-6333-4F00-9D8E-6486A8B24D73}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E44358-6333-4F00-9D8E-6486A8B24D73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48249E63-800C-488B-AA58-E32F05255CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48249E63-800C-488B-AA58-E32F05255CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48249E63-800C-488B-AA58-E32F05255CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48249E63-800C-488B-AA58-E32F05255CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{29512B99-5527-468B-87F6-77BD15976724} = {5076F8F5-082E-4B63-96EC-2BB53190C7C5}
+		{79D643D8-3100-4CB6-A480-B39A752EFBF5} = {5076F8F5-082E-4B63-96EC-2BB53190C7C5}
+		{91E44358-6333-4F00-9D8E-6486A8B24D73} = {5076F8F5-082E-4B63-96EC-2BB53190C7C5}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0621BB76-4381-4FC8-BB26-D8C7686A281E}
+	EndGlobalSection
+EndGlobal
