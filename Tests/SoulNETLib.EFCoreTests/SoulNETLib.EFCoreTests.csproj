@@ -22,9 +22,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SoulNETLib.EFCore\SoulNETLib.EFCore.csproj" />
+    <ProjectReference Include="..\..\SoulNETLib.EFCore\SoulNETLib.EFCore.csproj" />
     <ProjectReference Include="..\SoulNETLibTests.Common\SoulNETLibTests.Common.csproj" />
-    <ProjectReference Include="..\SoulNETLib\SoulNETLib.csproj" />
+    <ProjectReference Include="..\..\SoulNETLib\SoulNETLib.csproj" />
   </ItemGroup>
 
 </Project>
