@@ -4,6 +4,15 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	
+	<PackageId>SoulNETLib.Common</PackageId>
+    <Version>0.0.1</Version>
+    <Authors>sawyl</Authors>
+    <Company>https://github.com/sawyl</Company>
+    <PackageDescription>Common bits for the SoulNETLib package</PackageDescription>
+    <RepositoryUrl>https://github.com/sawyl/SoulNETLib</RepositoryUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
+  
 
 </Project>
