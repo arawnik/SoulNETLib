@@ -19,6 +19,8 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release
       - name: Pack
-        run: dotnet pack src/myproject.csproj --output nuget-packages --configuration Release
+        run: dotnet pack SoulNETLib.Common/SoulNETLib.Common.csproj --output nuget-packages --configuration Release
+      - name: Pack
+        run: dotnet pack SoulNETLib.EFCore/SoulNETLib.EFCore.csproj --output nuget-packages --configuration Release
       - name: Push
         run: dotnet nuget push **/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/sawyl/index.json
