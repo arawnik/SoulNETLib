@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 
-namespace SoulNETLib.Extension
+namespace SoulNETLib.Common.Extension
 {
     /// <summary>
     /// Define extension methods for <see cref="IQueryable{T}"/>.

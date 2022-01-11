@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using SoulNETLib.Extension;
+using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
 using System;
 using Xunit;

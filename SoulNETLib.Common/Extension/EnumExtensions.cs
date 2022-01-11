@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Reflection;
 
-namespace SoulNETLib.Extension
+namespace SoulNETLib.Common.Extension
 {
     /// <summary>
     /// Define extension methods for <see cref="Enum"/>.

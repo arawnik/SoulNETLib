@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\SoulNETLib.Common\SoulNETLib.Common.csproj" />
     <ProjectReference Include="..\SoulNETLibTests.Common\SoulNETLibTests.Common.csproj" />
-    <ProjectReference Include="..\..\SoulNETLib\SoulNETLib.csproj" />
   </ItemGroup>
 
 </Project>

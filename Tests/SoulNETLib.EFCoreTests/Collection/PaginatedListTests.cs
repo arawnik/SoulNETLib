@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
 using SoulNETLib.EFCore.Collection;
-using SoulNETLib.Extension;
+using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
 using System.Collections.Generic;
 using System.IO;

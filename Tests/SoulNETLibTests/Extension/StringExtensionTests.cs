@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using SoulNETLib.Extension;
+using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
 using System;
 using Xunit;
@@ -14,9 +14,9 @@ namespace SoulNETLibTests.Extension
         public void OrEmptyIfNull_NullString_ReturnEmpty()
         {
             // Arrange
-#pragma warning disable CS8600
+            #pragma warning disable CS8600
             string nullStr = null;
-#pragma warning restore CS8600
+            #pragma warning restore CS8600
             string? nullableNullStr = null;
 
             // Act
