@@ -25,9 +25,9 @@ Tests are xUnit.net tests. Way to run them depends on your IDE. If you can build
 
 ## Authors
 
-* **Jere Junttila** - [Sawyl](https://github.com/sawyl)
+* **Jere Junttila** - [Arawnik](https://github.com/arawnik)
 
-See also the list of [contributors](https://github.com/sawyl/JelaCoreLib/graphs/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/arawnik/JelaCoreLib/graphs/contributors) who participated in this project.
 
 ## License
 
