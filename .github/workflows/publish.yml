@@ -13,7 +13,7 @@ jobs:
         uses: actions/setup-dotnet@v1
         with:
           dotnet-version: 6.0.x
-          source-url: https://nuget.pkg.github.com/sawyl/index.json
+          source-url: https://nuget.pkg.github.com/arawnik/index.json
         env:
           NUGET_AUTH_TOKEN: ${{secrets.PACKAGES_TOKEN}}
       - name: Build Solution
@@ -23,4 +23,4 @@ jobs:
       - name: Pack EFCore
         run: dotnet pack SoulNETLib.EFCore/SoulNETLib.EFCore.csproj --output nuget-packages --configuration Release
       - name: Push
-        run: dotnet nuget push **/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/sawyl/index.json
+        run: dotnet nuget push **/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/arawnik/index.json
