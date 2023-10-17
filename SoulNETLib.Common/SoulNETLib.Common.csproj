@@ -4,13 +4,14 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	
 	<PackageId>SoulNETLib.Common</PackageId>
-    <Version>0.0.3</Version>
-    <Authors>sawyl</Authors>
-    <Company>https://github.com/sawyl</Company>
+    <Version>0.1.0</Version>
+    <Authors>Arawnik</Authors>
+    <Company>https://github.com/arawnik</Company>
     <PackageDescription>Common bits for the SoulNETLib package</PackageDescription>
-    <RepositoryUrl>https://github.com/sawyl/SoulNETLib</RepositoryUrl>
+    <RepositoryUrl>https://github.com/arawnik/SoulNETLib</RepositoryUrl>
   </PropertyGroup>
   
 

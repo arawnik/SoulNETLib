@@ -14,9 +14,7 @@ namespace SoulNETLibTests.Extension
         public void OrEmptyIfNull_NullString_ReturnEmpty()
         {
             // Arrange
-            #pragma warning disable CS8600
-            string nullStr = null;
-            #pragma warning restore CS8600
+            string nullStr = null!;
             string? nullableNullStr = null;
 
             // Act
@@ -95,14 +93,10 @@ namespace SoulNETLibTests.Extension
         public void RemoveWhitespaces_WithNull_ReturnNull()
         {
             // Arrange
-            #pragma warning disable CS8600 // Testing null value to non-nullable type.
-            string nullString = null;
-            #pragma warning restore CS8600
+            string nullString = null!;
 
             // Act
-            #pragma warning disable CS8604 // Testing null reference argument.
             Func<string> act = () => nullString.RemoveWhitespaces();
-            #pragma warning restore CS8604
 
             // Assert
             act.Should().ThrowExactly<ArgumentNullException>();
@@ -144,14 +138,10 @@ namespace SoulNETLibTests.Extension
         public void TryRemoveEnd_WithNullSource_ThrowsArgumentNullException()
         {
             // Arrange
-            #pragma warning disable CS8600 // Testing null value to non-nullable type.
-            string nullString = null;
-            #pragma warning restore CS8600
+            string nullString = null!;
 
             // Act
-            #pragma warning disable CS8604 // Testing null reference argument.
             Func<bool> act = () => nullString.TryRemoveEnd(" amet", out string parsed);
-            #pragma warning restore CS8604
 
             // Assert
             act.Should().ThrowExactly<ArgumentNullException>();
@@ -164,9 +154,7 @@ namespace SoulNETLibTests.Extension
             string nullString = SampleStrings.str1;
 
             // Act
-            #pragma warning disable CS8625 // Testing null literal to non-nullable reference type.
-            Func<bool> act = () => nullString.TryRemoveEnd(null, out string parsed);
-            #pragma warning restore CS8625
+            Func<bool> act = () => nullString.TryRemoveEnd(null!, out string parsed);
 
             // Assert
             act.Should().ThrowExactly<ArgumentNullException>();
@@ -208,14 +196,10 @@ namespace SoulNETLibTests.Extension
         public void TryRemoveStart_WithNullSource_ThrowsArgumentNullException()
         {
             // Arrange
-            #pragma warning disable CS8600 // Testing null value to non-nullable type.
-            string nullString = null;
-            #pragma warning restore CS8600
+            string nullString = null!;
 
             // Act
-            #pragma warning disable CS8604 // Testing null reference argument.
             Func<bool> act = () => nullString.TryRemoveStart("Lorem ", out string parsed);
-            #pragma warning restore CS8604
 
             // Assert
             act.Should().ThrowExactly<ArgumentNullException>();
@@ -228,9 +212,7 @@ namespace SoulNETLibTests.Extension
             string nullString = SampleStrings.str1;
 
             // Act
-            #pragma warning disable CS8625 // Testing null literal to non-nullable reference type.
-            Func<bool> act = () => nullString.TryRemoveStart(null, out string parsed);
-            #pragma warning restore CS8625
+            Func<bool> act = () => nullString.TryRemoveStart(null!, out string parsed);
 
             // Assert
             act.Should().ThrowExactly<ArgumentNullException>();
@@ -238,5 +220,47 @@ namespace SoulNETLibTests.Extension
 
         #endregion
 
+        #region FirstCharToUpper
+
+        [Fact]
+        public void FirstCharToUpper_WithProperString_ReturnModifiedString()
+        {
+            // Arrange
+            string testString = "lorem ipsum dolor sit amet";
+
+            // Act
+            var modified = testString.FirstCharToUpper();
+
+            // Assert
+            modified.Should().Be("Lorem ipsum dolor sit amet");
+        }
+
+        [Fact]
+        public void FirstCharToUpper_WithEmptyString_ReturnEmptyString()
+        {
+            // Arrange
+            string testString = string.Empty;
+
+            // Act
+            var modified = testString.FirstCharToUpper();
+
+            // Assert
+            modified.Should().Be(string.Empty);
+        }
+
+        [Fact]
+        public void FirstCharToUpper_WithNull_ThrowsException()
+        {
+            // Arrange
+            string testString = null!;
+
+            // Act
+            Func<string> act = () => testString.FirstCharToUpper();
+
+            // Assert
+            act.Should().ThrowExactly<ArgumentNullException>();
+        }
+
+        #endregion
     }
 }
