@@ -7,12 +7,11 @@
 	<GenerateDocumentationFile>true</GenerateDocumentationFile>
 	
 	<PackageId>SoulNETLib.Common</PackageId>
-    <Version>0.1.0</Version>
+    <Version>0.1.1</Version>
     <Authors>Arawnik</Authors>
     <Company>https://github.com/arawnik</Company>
     <PackageDescription>Common bits for the SoulNETLib package</PackageDescription>
     <RepositoryUrl>https://github.com/arawnik/SoulNETLib</RepositoryUrl>
   </PropertyGroup>
-  
 
 </Project>

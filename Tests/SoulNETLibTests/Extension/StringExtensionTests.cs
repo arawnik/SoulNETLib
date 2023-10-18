@@ -262,5 +262,87 @@ namespace SoulNETLibTests.Extension
         }
 
         #endregion
+
+        #region GetDigits
+
+        [Fact]
+        public void GetDigitsInt_WithProperString_ReturnParsedInt()
+        {
+            // Arrange
+            string testString = "lorem ipsum dolor 1234 sit amet";
+
+            // Act
+            var modified = testString.GetDigitsInt();
+
+            // Assert
+            modified.Should().Be(1234);
+        }
+
+        [Fact]
+        public void GetDigitsInt_WithEmptyString_ReturnZero()
+        {
+            // Arrange
+            string testString = string.Empty;
+
+            // Act
+            var modified = testString.GetDigitsInt();
+
+            // Assert
+            modified.Should().Be(0);
+        }
+
+        [Fact]
+        public void GetDigitsInt_WithNull_ThrowsException()
+        {
+            // Arrange
+            string testString = null!;
+
+            // Act
+            Func<int> act = () => testString.GetDigitsInt();
+
+            // Assert
+            act.Should().ThrowExactly<ArgumentNullException>();
+        }
+
+        [Fact]
+        public void GetDigitsLong_WithProperString_ReturnParsedInt()
+        {
+            // Arrange
+            string testString = "lorem ipsum dolor 1234 sit amet";
+
+            // Act
+            var modified = testString.GetDigitsLong();
+
+            // Assert
+            modified.Should().Be(1234);
+        }
+
+        [Fact]
+        public void GetDigitsLong_WithEmptyString_ReturnZero()
+        {
+            // Arrange
+            string testString = string.Empty;
+
+            // Act
+            var modified = testString.GetDigitsLong();
+
+            // Assert
+            modified.Should().Be(0);
+        }
+
+        [Fact]
+        public void GetDigitsLong_WithNull_ThrowsException()
+        {
+            // Arrange
+            string testString = null!;
+
+            // Act
+            Func<long> act = () => testString.GetDigitsLong();
+
+            // Assert
+            act.Should().ThrowExactly<ArgumentNullException>();
+        }
+
+        #endregion
     }
 }

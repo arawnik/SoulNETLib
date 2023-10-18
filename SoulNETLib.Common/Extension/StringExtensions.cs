@@ -86,5 +86,42 @@ namespace SoulNETLib.Common.Extension
                 return source;
             return string.Concat(source[0].ToString().ToUpper(), source.AsSpan(1));
         }
+
+        /// <summary>
+        /// Get just Digits from <paramref name="source"/> and return as <see cref="int"/>.
+        /// </summary>
+        /// <param name="source">The <see cref="string"/> from which we parse.</param>
+        /// <returns>parsed number from digits of <paramref name="source"/>.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="source"/> is <see cref="null"/>.</exception>
+        public static int GetDigitsInt(this string source)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            var cleared = new String(source.Where(Char.IsDigit).ToArray());
+            if(int.TryParse(cleared, out var parsedInt)) {
+                return parsedInt;
+            }
+            return 0;
+        }
+
+        /// <summary>
+        /// Get just Digits from <paramref name="source"/> and return as <see cref="long"/>.
+        /// </summary>
+        /// <param name="source">The <see cref="string"/> from which we parse.</param>
+        /// <returns>parsed number from digits of <paramref name="source"/>.</returns>
+        /// <exception cref="ArgumentNullException">Thrown if <paramref name="source"/> is <see cref="null"/>.</exception>
+        public static long GetDigitsLong(this string source)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            var cleared = new String(source.Where(Char.IsDigit).ToArray());
+            if (long.TryParse(cleared, out var parsedInt))
+            {
+                return parsedInt;
+            }
+            return 0;
+        }
     }
 }
