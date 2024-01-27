@@ -13,7 +13,7 @@ namespace SoulNETLib.Common.Extension
         /// <typeparam name="T">Type of object that is checked.</typeparam>
         /// <param name="source">The source from which we check.</param>
         /// <param name="name">Name of the property we check.</param>
-        /// <param name="caseSensitive">If <see cref="true"/>, check case sensitive. Otherwise case insensitive.</param>
+        /// <param name="caseSensitive">If true, check case sensitive. Otherwise case insensitive.</param>
         /// <returns>True if property exists, false otherwise.</returns>
         public static bool HasProperty<T>(this T source, string name, bool caseSensitive = true)
         {
@@ -28,8 +28,8 @@ namespace SoulNETLib.Common.Extension
         /// </summary>
         /// <param name="source">The <see cref="Type"/> of class that is checked.</param>
         /// <param name="name">Name of the property that is checked.</param>
-        /// <param name="caseSensitive">If <see cref="true"/>, check case sensitive. Otherwise case insensitive.</param>
-        /// <returns><see cref="true"/> if property exists, <see cref="false"/> otherwise.</returns>
+        /// <param name="caseSensitive">If true, check case sensitive. Otherwise case insensitive.</param>
+        /// <returns>true if property exists, false otherwise.</returns>
         public static bool HasProperty(this Type source, string name, bool caseSensitive = true)
         {
             try
