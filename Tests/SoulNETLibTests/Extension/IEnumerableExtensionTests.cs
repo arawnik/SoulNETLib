@@ -1,8 +1,8 @@
-﻿using FluentAssertions;
-using SoulNETLib.Common.Extension;
+﻿using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace SoulNETLibTests.Extension
@@ -25,7 +25,7 @@ namespace SoulNETLibTests.Extension
             var ret = enumerable.OrEmptyIfNull();
 
             // Assert
-            ret.Should().BeEmpty();
+            Assert.Empty(ret);
         }
 
         [Fact]
@@ -38,8 +38,8 @@ namespace SoulNETLibTests.Extension
             var ret = enumerable.OrEmptyIfNull();
 
             // Assert
-            ret.Should().BeSameAs(enumerable);
-            ret.Should().BeEquivalentTo(enumerable);
+            Assert.Same(enumerable, ret);
+            Assert.Equal(enumerable, ret);
         }
 
         [Fact]
@@ -52,8 +52,8 @@ namespace SoulNETLibTests.Extension
             var ret = enumerable.OrEmptyIfNull();
 
             // Assert
-            ret.Should().BeSameAs(enumerable);
-            ret.Should().BeEquivalentTo(enumerable);
+            Assert.Same(enumerable, ret);
+            Assert.Equal(enumerable, ret);
         }
 
         #endregion
@@ -71,10 +71,10 @@ namespace SoulNETLibTests.Extension
             var ret = list.WhereIf(true, x => x.Equals(SampleStrings.str1));
 
             // Assert
-            ret.Should().HaveCount(1);
-            ret.Should().BeEquivalentTo(listWithStr1);
-            ret.Should().NotBeSameAs(listWithStr1);
-            ret.Should().NotBeSameAs(list);
+            Assert.Single(ret);
+            Assert.Equal(listWithStr1, ret);
+            Assert.NotSame(listWithStr1, ret);
+            Assert.NotSame(list, ret);
         }
 
         [Fact]
@@ -89,11 +89,11 @@ namespace SoulNETLibTests.Extension
             var ret = list.WhereIf(false, x => x.Equals(SampleStrings.str1));
 
             // Assert
-            ret.Should().HaveCount(originalListCount);
-            ret.Should().NotBeEquivalentTo(listWithStr1);
-            ret.Should().NotBeSameAs(listWithStr1);
-            ret.Should().BeEquivalentTo(list);
-            ret.Should().BeSameAs(list);
+            Assert.Equal(originalListCount, ret.Count());
+            Assert.NotEqual(listWithStr1, ret);
+            Assert.NotSame(listWithStr1, ret);
+            Assert.Equal(list, ret);
+            Assert.Same(list, ret);
         }
 
         #endregion

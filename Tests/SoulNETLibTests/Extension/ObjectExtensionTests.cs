@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using SoulNETLib.Common.Extension;
+﻿using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
 using System;
 using Xunit;
@@ -29,7 +28,7 @@ namespace SoulNETLibTests.Extension
             var exists = typeof(SampleObject).HasProperty(propertyName, false);
 
             // Assert
-            exists.Should().BeTrue();
+            Assert.True(exists);
         }
 
         [Theory]
@@ -47,7 +46,7 @@ namespace SoulNETLibTests.Extension
             var exists = typeof(SampleObject).HasProperty(propertyName);
 
             // Assert
-            exists.Should().BeTrue();
+            Assert.True(exists);
         }
 
         [Theory]
@@ -63,7 +62,7 @@ namespace SoulNETLibTests.Extension
             var exists = typeof(SampleObject).HasProperty(propertyName);
 
             // Assert
-            exists.Should().BeFalse();
+            Assert.False(exists);
         }
 
         [Theory]
@@ -84,7 +83,7 @@ namespace SoulNETLibTests.Extension
             var exists = typeof(SampleObject).HasProperty(propertyName);
 
             // Assert
-            exists.Should().BeFalse();
+            Assert.False(exists);
         }
 
         [Fact]
@@ -96,7 +95,7 @@ namespace SoulNETLibTests.Extension
             var exists = typeof(SampleObject).HasProperty("hidden");
 
             // Assert
-            exists.Should().BeFalse();
+            Assert.False(exists);
         }
 
         [Fact]
@@ -108,7 +107,7 @@ namespace SoulNETLibTests.Extension
             var exists = typeof(SampleObject).HasProperty("semi");
 
             // Assert
-            exists.Should().BeFalse();
+            Assert.False(exists);
         }
 
         #endregion
@@ -130,7 +129,7 @@ namespace SoulNETLibTests.Extension
             var exists = testObj.HasProperty(propertyName, false);
 
             // Assert
-            exists.Should().BeTrue();
+            Assert.True(exists);
         }
 
         [Theory]
@@ -149,7 +148,7 @@ namespace SoulNETLibTests.Extension
             var exists = testObj.HasProperty(propertyName);
 
             // Assert
-            exists.Should().BeTrue();
+            Assert.True(exists);
         }
 
         [Theory]
@@ -166,7 +165,7 @@ namespace SoulNETLibTests.Extension
             var exists = testObj.HasProperty(propertyName);
 
             // Assert
-            exists.Should().BeFalse();
+            Assert.False(exists);
         }
 
         [Theory]
@@ -188,7 +187,7 @@ namespace SoulNETLibTests.Extension
             var exists = testObj.HasProperty(propertyName);
 
             // Assert
-            exists.Should().BeFalse();
+            Assert.False(exists);
         }
 
 
@@ -209,8 +208,8 @@ namespace SoulNETLibTests.Extension
             var existsInObj = testObj.HasProperty(propertyName, false);
 
             // Assert
-            exists.Should().BeTrue();
-            existsInObj.Should().BeTrue();
+            Assert.True(exists);
+            Assert.True(existsInObj);
         }
 
         [Theory]
@@ -230,8 +229,8 @@ namespace SoulNETLibTests.Extension
             var existsInObj = testObj.HasProperty(propertyName);
 
             // Assert
-            exists.Should().BeFalse();
-            existsInObj.Should().BeFalse();
+            Assert.False(exists);
+            Assert.False(existsInObj);
         }
 
         #endregion
@@ -250,12 +249,12 @@ namespace SoulNETLibTests.Extension
             testClass.CopyPropertyValuesFrom(testObj);
 
             // Assert
-            testClass.Id.Should().Be(SampleNumbers.int1);
-            testClass.Name.Should().Be(SampleStrings.str1);
-            testClass.DateTime.Should().Be(now);
-            testClass.Comment.Should().Be(SampleStrings.str2);
-            testClass.GetHidden().Should().Be(SampleStrings.str6, "private properties cannot be altered.");
-            testClass.GetSemi().Should().Be(SampleStrings.str7, "protected properties cannot be altered.");
+            Assert.Equal(SampleNumbers.int1, testClass.Id);
+            Assert.Equal(SampleStrings.str1, testClass.Name);
+            Assert.Equal(now, testClass.DateTime);
+            Assert.Equal(SampleStrings.str2, testClass.Comment);
+            Assert.Equal(SampleStrings.str6, testClass.GetHidden());
+            Assert.Equal(SampleStrings.str7, testClass.GetSemi());
         }
 
         [Fact]
@@ -272,12 +271,12 @@ namespace SoulNETLibTests.Extension
             testClass.CopyPropertyValuesFrom(testObj);
 
             // Assert
-            testClass.Id.Should().Be(SampleNumbers.int1);
-            testClass.Name.Should().Be(SampleStrings.str4);
-            testClass.DateTime.Should().Be(today);
-            testClass.trouble.Should().Be(SampleNumbers.int4);
-            testClass.Trouble.Should().Be(SampleNumbers.int1);
-            testClass.TROUBLE.Should().Be(SampleNumbers.int4);
+            Assert.Equal(SampleNumbers.int1, testClass.Id);
+            Assert.Equal(SampleStrings.str4, testClass.Name);
+            Assert.Equal(today, testClass.DateTime);
+            Assert.Equal(SampleNumbers.int4, testClass.trouble);
+            Assert.Equal(SampleNumbers.int1, testClass.Trouble);
+            Assert.Equal(SampleNumbers.int4, testClass.TROUBLE);
         }
 
         [Fact]
@@ -293,12 +292,12 @@ namespace SoulNETLibTests.Extension
             testClass.CopyPropertyValuesFrom(testObj);
 
             // Assert
-            testClass.Id.Should().Be(SampleNumbers.int1);
-            testClass.Name.Should().Be(SampleStrings.str4);
-            testClass.DateTime.Should().Be(now);
-            testClass.trouble.Should().Be(SampleNumbers.int4);
-            testClass.Trouble.Should().Be(SampleNumbers.int4);
-            testClass.TROUBLE.Should().Be(SampleNumbers.int4);
+            Assert.Equal(SampleNumbers.int1, testClass.Id);
+            Assert.Equal(SampleStrings.str4, testClass.Name);
+            Assert.Equal(now, testClass.DateTime);
+            Assert.Equal(SampleNumbers.int4, testClass.trouble);
+            Assert.Equal(SampleNumbers.int4, testClass.Trouble);
+            Assert.Equal(SampleNumbers.int4, testClass.TROUBLE);
         }
 
         [Fact]
@@ -307,16 +306,16 @@ namespace SoulNETLibTests.Extension
             // Arrange
             var now = DateTime.UtcNow;
             var testObj = new { Id = SampleNumbers.int2, name = SampleStrings.str1, dateTime = now, comment = SampleStrings.str2, test = SampleStrings.str3, Trouble = SampleNumbers.int1 };
-            
-            #pragma warning disable CS8600 // Testing null value to non-nullable type.
+
+#pragma warning disable CS8600 // Testing null value to non-nullable type.
             SampleObject testClass = null;
-            #pragma warning restore CS8600 
+#pragma warning restore CS8600
 
             // Act
             testClass.CopyPropertyValuesFrom(testObj);
 
             // Assert
-            testClass.Should().BeNull("Source will not be initialized.");
+            Assert.Null(testClass);
         }
 
         #endregion

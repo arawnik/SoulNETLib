@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using SoulNETLib.Common.Extension;
+﻿using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
 using System;
 using Xunit;
@@ -22,8 +21,8 @@ namespace SoulNETLibTests.Extension
             var ret2 = nullableNullStr.OrEmptyIfNull();
 
             // Assert
-            ret.Should().BeEmpty();
-            ret2.Should().BeEmpty();
+            Assert.Equal(string.Empty, ret);
+            Assert.Equal(string.Empty, ret2);
         }
 
         [Fact]
@@ -36,8 +35,8 @@ namespace SoulNETLibTests.Extension
             var ret = str.OrEmptyIfNull();
 
             // Assert
-            ret.Should().BeSameAs(str);
-            ret.Should().BeEquivalentTo(SampleStrings.str1);
+            Assert.Same(str, ret);
+            Assert.Equal(SampleStrings.str1, ret);
         }
 
         #endregion
@@ -60,7 +59,7 @@ namespace SoulNETLibTests.Extension
             var ret = whitespaceString.RemoveWhitespaces();
 
             // Assert
-            ret.Should().Be(string.Empty);
+            Assert.Equal(string.Empty, ret);
         }
 
         [Fact]
@@ -73,7 +72,7 @@ namespace SoulNETLibTests.Extension
             var ret = whitespaceString.RemoveWhitespaces();
 
             // Assert
-            ret.Should().Be("string");
+            Assert.Equal("string", ret);
         }
 
         [Fact]
@@ -86,7 +85,7 @@ namespace SoulNETLibTests.Extension
             var ret = whitespaceString.RemoveWhitespaces();
 
             // Assert
-            ret.Should().Be("string");
+            Assert.Equal("string", ret);
         }
 
         [Fact]
@@ -99,7 +98,7 @@ namespace SoulNETLibTests.Extension
             Func<string> act = () => nullString.RemoveWhitespaces();
 
             // Assert
-            act.Should().ThrowExactly<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>(act);
         }
 
         #endregion
@@ -116,8 +115,8 @@ namespace SoulNETLibTests.Extension
             var removed = testString.TryRemoveEnd(" amet", out string parsed);
 
             // Assert
-            removed.Should().BeTrue();
-            parsed.Should().Be("Lorem ipsum dolor sit");
+            Assert.True(removed);
+            Assert.Equal("Lorem ipsum dolor sit", parsed);
         }
 
         [Fact]
@@ -130,8 +129,8 @@ namespace SoulNETLibTests.Extension
             var removed = testString.TryRemoveEnd(" aset", out string parsed);
 
             // Assert
-            removed.Should().BeFalse();
-            parsed.Should().Be("Lorem ipsum dolor sit amet");
+            Assert.False(removed);
+            Assert.Equal("Lorem ipsum dolor sit amet", parsed);
         }
 
         [Fact]
@@ -141,10 +140,10 @@ namespace SoulNETLibTests.Extension
             string nullString = null!;
 
             // Act
-            Func<bool> act = () => nullString.TryRemoveEnd(" amet", out string parsed);
+            Action act = () => nullString.TryRemoveEnd(" amet", out string parsed);
 
             // Assert
-            act.Should().ThrowExactly<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>(act);
         }
 
         [Fact]
@@ -154,10 +153,10 @@ namespace SoulNETLibTests.Extension
             string nullString = SampleStrings.str1;
 
             // Act
-            Func<bool> act = () => nullString.TryRemoveEnd(null!, out string parsed);
+            Action act = () => nullString.TryRemoveEnd(null!, out string parsed);
 
             // Assert
-            act.Should().ThrowExactly<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>(act);
         }
 
         #endregion
@@ -174,8 +173,8 @@ namespace SoulNETLibTests.Extension
             var removed = testString.TryRemoveStart("Lorem ", out string parsed);
 
             // Assert
-            removed.Should().BeTrue();
-            parsed.Should().Be("ipsum dolor sit amet");
+            Assert.True(removed);
+            Assert.Equal("ipsum dolor sit amet", parsed);
         }
 
         [Fact]
@@ -188,8 +187,8 @@ namespace SoulNETLibTests.Extension
             var removed = testString.TryRemoveStart("Lodem ", out string parsed);
 
             // Assert
-            removed.Should().BeFalse();
-            parsed.Should().Be("Lorem ipsum dolor sit amet");
+            Assert.False(removed);
+            Assert.Equal("Lorem ipsum dolor sit amet", parsed);
         }
 
         [Fact]
@@ -199,10 +198,10 @@ namespace SoulNETLibTests.Extension
             string nullString = null!;
 
             // Act
-            Func<bool> act = () => nullString.TryRemoveStart("Lorem ", out string parsed);
+            Action act = () => nullString.TryRemoveStart("Lorem ", out string parsed);
 
             // Assert
-            act.Should().ThrowExactly<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>(act);
         }
 
         [Fact]
@@ -212,10 +211,10 @@ namespace SoulNETLibTests.Extension
             string nullString = SampleStrings.str1;
 
             // Act
-            Func<bool> act = () => nullString.TryRemoveStart(null!, out string parsed);
+            void act() => nullString.TryRemoveStart(null!, out string parsed);
 
             // Assert
-            act.Should().ThrowExactly<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>(act);
         }
 
         #endregion
@@ -232,7 +231,7 @@ namespace SoulNETLibTests.Extension
             var modified = testString.FirstCharToUpper();
 
             // Assert
-            modified.Should().Be("Lorem ipsum dolor sit amet");
+            Assert.Equal("Lorem ipsum dolor sit amet", modified);
         }
 
         [Fact]
@@ -245,7 +244,7 @@ namespace SoulNETLibTests.Extension
             var modified = testString.FirstCharToUpper();
 
             // Assert
-            modified.Should().Be(string.Empty);
+            Assert.Equal(string.Empty, modified);
         }
 
         [Fact]
@@ -258,7 +257,7 @@ namespace SoulNETLibTests.Extension
             Func<string> act = () => testString.FirstCharToUpper();
 
             // Assert
-            act.Should().ThrowExactly<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>(act);
         }
 
         #endregion
@@ -275,7 +274,7 @@ namespace SoulNETLibTests.Extension
             var modified = testString.GetDigitsInt();
 
             // Assert
-            modified.Should().Be(1234);
+            Assert.Equal(1234, modified);
         }
 
         [Fact]
@@ -288,7 +287,7 @@ namespace SoulNETLibTests.Extension
             var modified = testString.GetDigitsInt();
 
             // Assert
-            modified.Should().Be(0);
+            Assert.Equal(0, modified);
         }
 
         [Fact]
@@ -298,10 +297,10 @@ namespace SoulNETLibTests.Extension
             string testString = null!;
 
             // Act
-            Func<int> act = () => testString.GetDigitsInt();
+            Action act = () => testString.GetDigitsInt();
 
             // Assert
-            act.Should().ThrowExactly<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>(act);
         }
 
         [Fact]
@@ -314,7 +313,7 @@ namespace SoulNETLibTests.Extension
             var modified = testString.GetDigitsLong();
 
             // Assert
-            modified.Should().Be(1234);
+            Assert.Equal(1234, modified);
         }
 
         [Fact]
@@ -327,7 +326,7 @@ namespace SoulNETLibTests.Extension
             var modified = testString.GetDigitsLong();
 
             // Assert
-            modified.Should().Be(0);
+            Assert.Equal(0, modified);
         }
 
         [Fact]
@@ -337,10 +336,10 @@ namespace SoulNETLibTests.Extension
             string testString = null!;
 
             // Act
-            Func<long> act = () => testString.GetDigitsLong();
+            Action act = () => testString.GetDigitsLong();
 
             // Assert
-            act.Should().ThrowExactly<ArgumentNullException>();
+            Assert.Throws<ArgumentNullException>(act);
         }
 
         #endregion

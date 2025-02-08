@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using SoulNETLib.Common.Extension;
+﻿using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Enums;
 using SoulNETLibTests.Common.TestData.Models;
 using System;
@@ -22,7 +21,7 @@ namespace SoulNETLibTests.Extension
             var ret = sample.GetDescription();
 
             // Assert
-            ret.Should().Be(SampleStrings.str1);
+            Assert.Equal(SampleStrings.str1, ret);
         }
 
         [Fact]
@@ -35,7 +34,7 @@ namespace SoulNETLibTests.Extension
             var ret = sample.GetDescription();
 
             // Assert
-            ret.Should().Be(sample.ToString());
+            Assert.Equal(sample.ToString(), ret);
         }
 
         [Fact]
@@ -49,7 +48,7 @@ namespace SoulNETLibTests.Extension
             var ret = sample.GetDescription();
 
             // Assert
-            ret.Should().Be(evil.ToString());
+            Assert.Equal(evil.ToString(), ret);
         }
 
         [Fact]
@@ -62,7 +61,7 @@ namespace SoulNETLibTests.Extension
             var ret = sample.GetDescription();
 
             // Assert
-            ret.Should().Be(0.ToString());
+            Assert.Equal(0.ToString(), ret);
         }
 
         #endregion

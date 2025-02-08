@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using SoulNETLib.Common.Extension;
+﻿using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,10 +22,10 @@ namespace SoulNETLibTests.Extension
             var ret = queryable.WhereIf(true, x => x.Equals(SampleStrings.str1));
 
             // Assert
-            ret.Should().HaveCount(1);
-            ret.Should().BeEquivalentTo(queryableWithStr1);
-            ret.Should().NotBeSameAs(queryableWithStr1);
-            ret.Should().NotBeSameAs(queryable);
+            Assert.Equal(1, ret.Count());
+            Assert.Equal(queryableWithStr1, ret);
+            Assert.NotSame(queryableWithStr1, ret);
+            Assert.NotSame(queryable, ret);
         }
 
         [Fact]
@@ -41,11 +40,11 @@ namespace SoulNETLibTests.Extension
             var ret = queryable.WhereIf(false, x => x.Equals(SampleStrings.str1));
 
             // Assert
-            ret.Should().HaveCount(originalListCount);
-            ret.Should().NotBeEquivalentTo(queryableWithStr1);
-            ret.Should().NotBeSameAs(queryableWithStr1);
-            ret.Should().BeEquivalentTo(queryable);
-            ret.Should().BeSameAs(queryable);
+            Assert.Equal(originalListCount, ret.Count());
+            Assert.NotEqual(queryableWithStr1, ret);
+            Assert.NotSame(queryableWithStr1, ret);
+            Assert.Equal(queryable, ret);
+            Assert.Same(queryable, ret);
         }
 
         #endregion
