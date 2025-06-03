@@ -19,8 +19,12 @@ jobs:
       - name: Build Solution
         run: dotnet build --configuration Release
       - name: Pack Common
-        run: dotnet pack SoulNETLib.Common/SoulNETLib.Common.csproj --output nuget-packages --configuration Release
+        run: dotnet pack src/SoulNETLib.Common/SoulNETLib.Common.csproj --output nuget-packages --configuration Release
       - name: Pack EFCore
-        run: dotnet pack SoulNETLib.EFCore/SoulNETLib.EFCore.csproj --output nuget-packages --configuration Release
+        run: dotnet pack src/SoulNETLib.EFCore/SoulNETLib.EFCore.csproj --output nuget-packages --configuration Release
+      - name: Pack Clean architecture Common
+        run: dotnet pack src/SoulNETLib.Clean.Domain/SoulNETLib.Clean.Domain.csproj --output nuget-packages --configuration Release
+      - name: Pack Clean architecture Application
+        run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj --output nuget-packages --configuration Release
       - name: Push
         run: dotnet nuget push **/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/arawnik/index.json
