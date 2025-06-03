@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>SoulNETLib.Common</PackageId>
+    <PackageDescription>Common bits for the SoulNETLib package</PackageDescription>
+  </PropertyGroup>
+</Project>
