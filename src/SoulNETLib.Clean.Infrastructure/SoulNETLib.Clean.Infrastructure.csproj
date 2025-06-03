@@ -1,0 +1,6 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>SoulNETLib.Clean.Infrastructure</PackageId>
+    <PackageDescription>Infrastructure part of clean architecture in SoulNETLib package</PackageDescription>
+  </PropertyGroup>
+</Project>

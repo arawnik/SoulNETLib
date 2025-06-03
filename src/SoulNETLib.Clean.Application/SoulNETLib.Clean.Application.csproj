@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>SoulNETLib.Clean.Application</PackageId>
+    <PackageDescription>Application part of clean architecture in SoulNETLib package</PackageDescription>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SoulNETLib.Clean.Domain\SoulNETLib.Clean.Domain.csproj" />
+  </ItemGroup>
+</Project>

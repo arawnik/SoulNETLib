@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>SoulNETLib.EFCore</PackageId>
+    <PackageDescription>EntityFrameworkCore related bits for the SoulNETLib package</PackageDescription>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
+</Project>
