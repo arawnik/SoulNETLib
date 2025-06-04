@@ -28,5 +28,5 @@ jobs:
         run: dotnet pack src/SoulNETLib.Clean.Domain/SoulNETLib.Clean.Domain.csproj --output nuget-packages --configuration Release
       - name: Pack Clean architecture Application
         run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj --output nuget-packages --configuration Release
-      - name: Push
-        run: dotnet nuget push **/*.nupkg --skip-duplicate --source https://nuget.pkg.github.com/arawnik/index.json
+      - name: Push packages to GitHub Packages
+        run: dotnet nuget push **/*.nupkg --source https://nuget.pkg.github.com/arawnik/index.json --api-key ${{ secrets.PACKAGES_TOKEN }} --skip-duplicate
