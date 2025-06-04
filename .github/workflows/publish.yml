@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main # Default release branch
+  workflow_dispatch: # Manual trigger
+
 jobs:
   publish:
     name: publish nugets
