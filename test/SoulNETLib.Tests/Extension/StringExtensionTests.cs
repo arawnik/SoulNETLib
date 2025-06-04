@@ -1,5 +1,4 @@
-﻿using System;
-using SoulNETLib.Common.Extension;
+﻿using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
 using Xunit;
 
