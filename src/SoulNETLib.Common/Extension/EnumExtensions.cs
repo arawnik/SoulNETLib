@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 using System.Runtime.Serialization;
 
@@ -61,7 +62,10 @@ public static class EnumExtensions
     /// <param name="value">The string value to parse (typically from serialized input).</param>
     /// <param name="result">When successful, contains the parsed enum value.</param>
     /// <returns><c>true</c> if a match was found; otherwise, <c>false</c>.</returns>
-    public static bool TryParseEnumMember<TEnum>(this string value, out TEnum? result)
+    public static bool TryParseEnumMember<TEnum>(
+        this string value,
+        [NotNullWhen(true)] out TEnum? result
+    )
         where TEnum : struct, Enum
     {
         foreach (var field in typeof(TEnum).GetFields(BindingFlags.Public | BindingFlags.Static))
