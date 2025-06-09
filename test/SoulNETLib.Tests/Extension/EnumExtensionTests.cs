@@ -16,10 +16,10 @@ public class EnumExtensionTests
         var sample = SampleEnum.One;
 
         // Act
-        var ret = sample.GetDescription();
+        var result = sample.GetDescription();
 
         // Assert
-        Assert.Equal(SampleStrings.str1, ret);
+        Assert.Equal(SampleStrings.str1, result);
     }
 
     [Fact]
@@ -29,24 +29,24 @@ public class EnumExtensionTests
         var sample = SampleEnum.Ten;
 
         // Act
-        var ret = sample.GetDescription();
+        var result = sample.GetDescription();
 
         // Assert
-        Assert.Equal(sample.ToString(), ret);
+        Assert.Equal(sample.ToString(), result);
     }
 
     [Fact]
     public void GetDescription_NoMatchingValue_ReturnToString()
     {
         // Arrange
-        var evil = 666;
-        SampleEnum sample = (SampleEnum)evil;
+        var value = 666;
+        SampleEnum sample = (SampleEnum)value;
 
         // Act
-        var ret = sample.GetDescription();
+        var result = sample.GetDescription();
 
         // Assert
-        Assert.Equal(evil.ToString(), ret);
+        Assert.Equal(value.ToString(), result);
     }
 
     [Fact]
@@ -56,10 +56,99 @@ public class EnumExtensionTests
         SampleEnum sample = default;
 
         // Act
-        var ret = sample.GetDescription();
+        var result = sample.GetDescription();
 
         // Assert
-        Assert.Equal(0.ToString(), ret);
+        Assert.Equal(0.ToString(), result);
+    }
+
+    #endregion
+
+    #region TryParseEnumMember
+
+    [Fact]
+    public void TryParseEnumMember_ValidValue_ReturnsTrueAndEnum()
+    {
+        // Arrange
+        var input = "ONE";
+
+        // Act
+        var success = input.TryParseEnumMember<SampleEnum>(out var result);
+
+        // Assert
+        Assert.True(success);
+        Assert.Equal(SampleEnum.One, result);
+    }
+
+    [Fact]
+    public void TryParseEnumMember_InvalidValue_ReturnsFalse()
+    {
+        // Arrange
+        var input = "InvalidValue";
+
+        // Act
+        var success = input.TryParseEnumMember<SampleEnum>(out var result);
+
+        // Assert
+        Assert.False(success);
+        Assert.Null(result);
+    }
+
+    [Fact]
+    public void TryParseEnumMember_CaseInsensitive_ReturnsTrue()
+    {
+        // Arrange
+        var input = "two";
+
+        // Act
+        var success = input.TryParseEnumMember<SampleEnum>(out var result);
+
+        // Assert
+        Assert.True(success);
+        Assert.Equal(SampleEnum.Two, result);
+    }
+
+    #endregion
+
+    #region GetEnumMember
+
+    [Fact]
+    public void GetEnumMember_HasEnumMember_ReturnsCorrectValue()
+    {
+        // Arrange
+        var value = SampleEnum.One;
+
+        // Act
+        var result = value.GetEnumMember();
+
+        // Assert
+        Assert.Equal("ONE", result);
+    }
+
+    [Fact]
+    public void GetEnumMember_NoEnumMember_ReturnsName()
+    {
+        // Arrange
+        var value = SampleEnum.Ten;
+
+        // Act
+        var result = value.GetEnumMember();
+
+        // Assert
+        Assert.Equal("Ten", result);
+    }
+
+    [Fact]
+    public void GetEnumMember_InvalidEnumValue_ReturnsValueToString()
+    {
+        // Arrange
+        var value = (SampleEnum)999;
+
+        // Act
+        var result = value.GetEnumMember();
+
+        // Assert
+        Assert.Equal("999", result);
     }
 
     #endregion
