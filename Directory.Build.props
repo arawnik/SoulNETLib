@@ -11,7 +11,7 @@
     <CodeAnalysisTreatWarningsAsErrors>true</CodeAnalysisTreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 
-    <Version>0.2.2</Version>
+    <Version>0.2.3</Version>
     <Authors>Arawnik</Authors>
     <Company>https://github.com/arawnik</Company>
     <RepositoryUrl>https://github.com/arawnik/SoulNETLib</RepositoryUrl>
