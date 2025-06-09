@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using System.Runtime.Serialization;
 using SoulNETLibTests.Common.TestData.Models;
 
 namespace SoulNETLibTests.Common.TestData.Enums;
@@ -14,9 +15,11 @@ public enum SampleEnum
 #pragma warning restore CA1008 // Enums should have zero value
 {
     [Description(SampleStrings.str1)]
+    [EnumMember(Value = "ONE")]
     One = 1,
 
     [Description(SampleStrings.str2)]
+    [EnumMember(Value = "TWO")]
     Two = 2,
 
     [Description(SampleStrings.str3)]
