@@ -34,6 +34,9 @@ jobs:
       - name: Pack Clean.Application
         run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj --output nuget-packages --configuration Release
 
+      - name: Push packages to GitHub Packages
+        run: dotnet nuget push **/*.nupkg --source https://nuget.pkg.github.com/arawnik/index.json --api-key ${{ secrets.PACKAGES_TOKEN }} --skip-duplicate
+
       - name: Push packages to NuGet.org
         env:
           NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
