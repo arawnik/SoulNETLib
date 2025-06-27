@@ -1,4 +1,5 @@
-name: publish to nuget
+name: publish nuget packages
+
 on:
   push:
     branches:
@@ -10,23 +11,37 @@ jobs:
     name: publish nugets
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Setup .NET
-        uses: actions/setup-dotnet@v1
+        uses: actions/setup-dotnet@v3
         with:
-          dotnet-version: 9.0.x
-          source-url: https://nuget.pkg.github.com/arawnik/index.json
-        env:
-          NUGET_AUTH_TOKEN: ${{secrets.PACKAGES_TOKEN }}
+          dotnet-version: '9.0.x'
+
       - name: Build Solution
         run: dotnet build --configuration Release
+
       - name: Pack Common
         run: dotnet pack src/SoulNETLib.Common/SoulNETLib.Common.csproj --output nuget-packages --configuration Release
+
       - name: Pack EFCore
         run: dotnet pack src/SoulNETLib.EFCore/SoulNETLib.EFCore.csproj --output nuget-packages --configuration Release
-      - name: Pack Clean architecture Common
+      
+      - name: Pack Clean.Domain
         run: dotnet pack src/SoulNETLib.Clean.Domain/SoulNETLib.Clean.Domain.csproj --output nuget-packages --configuration Release
-      - name: Pack Clean architecture Application
+      
+      - name: Pack Clean.Application
         run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj --output nuget-packages --configuration Release
+
       - name: Push packages to GitHub Packages
         run: dotnet nuget push **/*.nupkg --source https://nuget.pkg.github.com/arawnik/index.json --api-key ${{ secrets.PACKAGES_TOKEN }} --skip-duplicate
+
+      - name: Push packages to NuGet.org
+        env:
+          NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
+        run: |
+          dotnet nuget push "nuget-packages/*.nupkg" \
+            --source https://api.nuget.org/v3/index.json \
+            --api-key $NUGET_API_KEY \
+            --skip-duplicate
