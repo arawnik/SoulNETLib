@@ -23,20 +23,16 @@ jobs:
         run: dotnet build --configuration Release
 
       - name: Pack Common
-        run: dotnet pack src/SoulNETLib.Common/SoulNETLib.Common.csproj \
-               --output nuget-packages --configuration Release
+        run: dotnet pack src/SoulNETLib.Common/SoulNETLib.Common.csproj --output nuget-packages --configuration Release
 
       - name: Pack EFCore
-        run: dotnet pack src/SoulNETLib.EFCore/SoulNETLib.EFCore.csproj \
-               --output nuget-packages --configuration Release
-
+        run: dotnet pack src/SoulNETLib.EFCore/SoulNETLib.EFCore.csproj --output nuget-packages --configuration Release
+      
       - name: Pack Clean.Domain
-        run: dotnet pack src/SoulNETLib.Clean.Domain/SoulNETLib.Clean.Domain.csproj \
-               --output nuget-packages --configuration Release
-
+        run: dotnet pack src/SoulNETLib.Clean.Domain/SoulNETLib.Clean.Domain.csproj --output nuget-packages --configuration Release
+      
       - name: Pack Clean.Application
-        run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj \
-               --output nuget-packages --configuration Release
+        run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj --output nuget-packages --configuration Release
 
       - name: Push packages to NuGet.org
         env:
