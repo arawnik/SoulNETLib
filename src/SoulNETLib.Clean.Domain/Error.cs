@@ -1,9 +1,17 @@
 ﻿namespace SoulNETLib.Clean.Domain;
 
 /// <summary>
-/// Represents an error in an operation.
+/// Represents an error in an operation, optionally associated with a specific field or property.
 /// </summary>
-public sealed record Error(string Code, string Message)
+/// <param name="Code">A machine-readable error classification code (see <see cref="ErrorCodes"/>).</param>
+/// <param name="Message">A human-readable description of the error.</param>
+/// <param name="Field">
+/// The name of the field or property that caused the error, or <c>null</c> for general errors.
+/// When present, follows the same naming convention as
+/// <see href="https://datatracker.ietf.org/doc/html/rfc9457">RFC 9457</see> ProblemDetails
+/// validation errors (e.g. <c>"EndDate"</c>, <c>"Translations[0].Title"</c>).
+/// </param>
+public sealed record Error(string Code, string Message, string? Field = null)
 {
     #region ErrorType methods
 
@@ -28,6 +36,20 @@ public sealed record Error(string Code, string Message)
     /// Creates an invalid data error. These errors are typically issue that rose from database.
     /// </summary>
     public static Error InvalidData(string message) => new(ErrorCodes.InvalidData, message);
+
+    /// <summary>
+    /// Creates a validation error associated with a specific field or property.
+    /// </summary>
+    /// <param name="field">The field or property name that failed validation (e.g. <c>"EndDate"</c>).</param>
+    /// <param name="message">A human-readable description of the validation failure.</param>
+    public static Error Validation(string field, string message) =>
+        new(ErrorCodes.Validation, message, field);
+
+    /// <summary>
+    /// Creates a general validation error not associated with a specific field.
+    /// </summary>
+    /// <param name="message">A human-readable description of the validation failure.</param>
+    public static Error Validation(string message) => new(ErrorCodes.Validation, message);
 
     #endregion
 
