@@ -2,7 +2,6 @@
 using System.Security.Principal;
 using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Models;
-using Xunit;
 
 namespace SoulNETLib.Tests.Extension;
 
@@ -15,9 +14,7 @@ public class ClaimExtensionTests
     {
         // Arrange
         IPrincipal test = new ClaimsPrincipal(
-            new ClaimsIdentity(
-                new Claim[] { new Claim(ClaimTypes.NameIdentifier, SampleStrings.str1) }
-            )
+            new ClaimsIdentity([new(ClaimTypes.NameIdentifier, SampleStrings.str1)])
         );
 
         // Act
@@ -33,18 +30,17 @@ public class ClaimExtensionTests
         // Arrange
         IPrincipal test = new ClaimsPrincipal(
             new ClaimsIdentity(
-                new Claim[]
-                { //Set only incorrect ClaimType
+                [ //Set only incorrect ClaimType
                     new Claim(ClaimTypes.MobilePhone, SampleStrings.str1),
-                }
+                ]
             )
         );
 
         // Act
-        Func<string> act = () => test.GetUserId();
+        string act() => test.GetUserId();
 
         // Assert
-        Assert.Throws<NullReferenceException>(act);
+        Assert.Throws<NullReferenceException>((Func<string>)act);
     }
 
     [Fact]
@@ -54,10 +50,10 @@ public class ClaimExtensionTests
         IPrincipal test = new ClaimsPrincipal();
 
         // Act
-        Func<string> act = () => test.GetUserId();
+        string act() => test.GetUserId();
 
         // Assert
-        Assert.Throws<NullReferenceException>(act);
+        Assert.Throws<NullReferenceException>((Func<string>)act);
     }
 
     #endregion
