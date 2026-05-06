@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using SoulNETLib.Clean.Application.Abstractions.CQRS;
+using SoulNETLib.Clean.Application.Abstractions.Validation;
 
 namespace SoulNETLib.Clean.Application.DependencyInjection;
 
@@ -100,6 +101,25 @@ public static class PipelineServiceCollectionExtensions
             sp.GetRequiredService<THandler>(),
             sp.GetRequiredService<IEnumerable<IQueryPipelineBehavior<TQuery, TResponse>>>()
         ));
+        return services;
+    }
+
+    /// <summary>
+    /// Registers a command validator for a specific command type.
+    /// The validator will be resolved by <see cref="Behaviors.ValidationBehavior{TCommand}"/>
+    /// or <see cref="Behaviors.ValidationBehavior{TCommand, TResponse}"/>.
+    /// </summary>
+    /// <typeparam name="TCommand">The command type to validate.</typeparam>
+    /// <typeparam name="TValidator">The concrete validator implementation type.</typeparam>
+    /// <param name="services">The service collection.</param>
+    /// <returns>The service collection for chaining.</returns>
+    public static IServiceCollection AddCommandValidator<TCommand, TValidator>(
+        this IServiceCollection services
+    )
+        where TCommand : IBaseCommand
+        where TValidator : class, ICommandValidator<TCommand>
+    {
+        services.AddScoped<ICommandValidator<TCommand>, TValidator>();
         return services;
     }
 }

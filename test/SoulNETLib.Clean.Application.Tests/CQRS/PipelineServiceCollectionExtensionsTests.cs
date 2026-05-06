@@ -1,5 +1,6 @@
 using Microsoft.Extensions.DependencyInjection;
 using SoulNETLib.Clean.Application.Abstractions.CQRS;
+using SoulNETLib.Clean.Application.Abstractions.Validation;
 using SoulNETLib.Clean.Application.DependencyInjection;
 using SoulNETLib.Clean.Domain;
 
@@ -86,5 +87,24 @@ public sealed class PipelineServiceCollectionExtensionsTests
             log.Add("behavior");
             return await next();
         }
+    }
+
+    [Fact]
+    public void AddCommandValidator_RegistersValidatorForCommandType()
+    {
+        var services = new ServiceCollection();
+        services.AddCommandValidator<TestCommand, TestCommandValidator>();
+
+        var descriptor = Assert.Single(services);
+        Assert.Equal(typeof(ICommandValidator<TestCommand>), descriptor.ServiceType);
+        Assert.Equal(typeof(TestCommandValidator), descriptor.ImplementationType);
+    }
+
+    private sealed class TestCommandValidator : ICommandValidator<TestCommand>
+    {
+        public Task<Error[]> ValidateAsync(
+            TestCommand command,
+            CancellationToken cancellationToken
+        ) => Task.FromResult(Array.Empty<Error>());
     }
 }
