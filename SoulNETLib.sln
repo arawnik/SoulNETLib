@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 18
-VisualStudioVersion = 18.5.11723.231 stable
+VisualStudioVersion = 18.5.11723.231
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{FB13DF3B-9868-4C19-89C3-6BDCDE7CF6EE}"
 EndProject
@@ -46,13 +46,22 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution", "Solution", "{02
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "GitHub", "GitHub", "{197429C7-1B38-4344-BBEC-CDC653CDF3A2}"
 	ProjectSection(SolutionItems) = preProject
-		.github\ISSUE_TEMPLATE\bug_report.md = .github\ISSUE_TEMPLATE\bug_report.md
-		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
-		.github\ISSUE_TEMPLATE\feature_request.md = .github\ISSUE_TEMPLATE\feature_request.md
-		.github\workflows\publish.yml = .github\workflows\publish.yml
+		.github\copilot-instructions.md = .github\copilot-instructions.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SoulNETLib.Clean.Application.Tests", "test\SoulNETLib.Clean.Application.Tests\SoulNETLib.Clean.Application.Tests.csproj", "{1B94E225-E413-4292-92CF-68D3C413DA67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{7AA046AA-C417-46A8-A1FD-D73EA3BC005A}"
+	ProjectSection(SolutionItems) = preProject
+		.github\ISSUE_TEMPLATE\bug_report.md = .github\ISSUE_TEMPLATE\bug_report.md
+		.github\ISSUE_TEMPLATE\feature_request.md = .github\ISSUE_TEMPLATE\feature_request.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Workflows", "Workflows", "{5E67D3E4-5A03-447A-B8E1-D0AD9520D610}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\codeql-analysis.yml = .github\workflows\codeql-analysis.yml
+		.github\workflows\publish.yml = .github\workflows\publish.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -186,6 +195,8 @@ Global
 		{29512B99-5527-468B-87F6-77BD15976724} = {5076F8F5-082E-4B63-96EC-2BB53190C7C5}
 		{79D643D8-3100-4CB6-A480-B39A752EFBF5} = {5076F8F5-082E-4B63-96EC-2BB53190C7C5}
 		{1B94E225-E413-4292-92CF-68D3C413DA67} = {5076F8F5-082E-4B63-96EC-2BB53190C7C5}
+		{7AA046AA-C417-46A8-A1FD-D73EA3BC005A} = {197429C7-1B38-4344-BBEC-CDC653CDF3A2}
+		{5E67D3E4-5A03-447A-B8E1-D0AD9520D610} = {197429C7-1B38-4344-BBEC-CDC653CDF3A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0621BB76-4381-4FC8-BB26-D8C7686A281E}
