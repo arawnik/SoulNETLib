@@ -1,7 +1,6 @@
 ﻿using SoulNETLib.Common.Extension;
 using SoulNETLibTests.Common.TestData.Enums;
 using SoulNETLibTests.Common.TestData.Models;
-using Xunit;
 
 namespace SoulNETLib.Tests.Extension;
 

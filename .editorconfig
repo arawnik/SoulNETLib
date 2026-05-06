@@ -145,3 +145,6 @@ dotnet_diagnostic.IDE0023.severity = none
 
 # CA2225: Operator overloads have named alternates
 dotnet_diagnostic.CA2225.severity = none
+
+# IDE0039: Use local function
+dotnet_diagnostic.IDE0039.severity = none

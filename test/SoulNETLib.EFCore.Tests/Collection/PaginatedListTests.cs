@@ -2,7 +2,6 @@
 using SoulNETLib.Common.Extension;
 using SoulNETLib.EFCore.Collection;
 using SoulNETLibTests.Common.TestData.Models;
-using Xunit;
 
 namespace SoulNETLib.EFCore.Tests.Collection;
 
