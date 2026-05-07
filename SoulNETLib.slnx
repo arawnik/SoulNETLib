@@ -12,6 +12,7 @@
     <File Path=".github/ISSUE_TEMPLATE/feature_request.md" />
   </Folder>
   <Folder Name="/GitHub/Workflows/">
+    <File Path=".github/workflows/build-and-test.yml" />
     <File Path=".github/workflows/publish.yml" />
   </Folder>
   <Folder Name="/Markdown/">
