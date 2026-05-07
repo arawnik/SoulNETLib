@@ -1,0 +1,46 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/GitHub/">
+    <File Path=".github/copilot-instructions.md" />
+  </Folder>
+  <Folder Name="/GitHub/Templates/">
+    <File Path=".github/ISSUE_TEMPLATE/bug_report.md" />
+    <File Path=".github/ISSUE_TEMPLATE/feature_request.md" />
+  </Folder>
+  <Folder Name="/GitHub/Workflows/">
+    <File Path=".github/workflows/codeql-analysis.yml" />
+    <File Path=".github/workflows/publish.yml" />
+  </Folder>
+  <Folder Name="/Markdown/">
+    <File Path="CODE_OF_CONDUCT.md" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="LICENSE" />
+    <File Path="README.md" />
+  </Folder>
+  <Folder Name="/Solution/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="coverlet.runsettings" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="NuGet.Config" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj" />
+    <Project Path="src/SoulNETLib.Clean.Domain/SoulNETLib.Clean.Domain.csproj" />
+    <Project Path="src/SoulNETLib.Clean.Infrastructure/SoulNETLib.Clean.Infrastructure.csproj" />
+    <Project Path="src/SoulNETLib.Common/SoulNETLib.Common.csproj" />
+    <Project Path="src/SoulNETLib.EFCore/SoulNETLib.EFCore.csproj" />
+  </Folder>
+  <Folder Name="/test/">
+    <File Path="test/.editorconfig" />
+    <Project Path="test/SoulNETLib.Clean.Application.Tests/SoulNETLib.Clean.Application.Tests.csproj" />
+    <Project Path="test/SoulNETLib.EFCore.Tests/SoulNETLib.EFCore.Tests.csproj" />
+    <Project Path="test/SoulNETLib.Tests/SoulNETLib.Tests.csproj" />
+    <Project Path="test/SoulNETLibTests.Common/SoulNETLibTests.Common.csproj" />
+  </Folder>
+</Solution>
