@@ -7,9 +7,6 @@ namespace SoulNETLib.EFCore.Tests.Collection;
 
 public class PaginatedListTests
 {
-    private readonly string _pathToCommonTestFiles =
-        "..\\..\\..\\..\\SoulNETLibTests.Common\\TestData\\Files\\";
-
     [Fact]
     public void PaginatedList_InitializedList_ReturnJsonList()
     {
@@ -51,10 +48,43 @@ public class PaginatedListTests
         // Act
         var options = new JsonSerializerOptions() { WriteIndented = true };
         string jsonString = JsonSerializer.Serialize(list, options);
-        string contents = File.ReadAllText(_pathToCommonTestFiles + "PaginatedListSample.json");
 
         // Assert
-        Assert.Equal(contents, jsonString);
+        const string expected = """
+            [
+              {
+                "Id": 1,
+                "Name": "name1",
+                "Comment": "comment1",
+                "DateTime": "0001-01-01T00:00:00"
+              },
+              {
+                "Id": 2,
+                "Name": "name2",
+                "Comment": "comment2",
+                "DateTime": "0001-01-01T00:00:00"
+              },
+              {
+                "Id": 3,
+                "Name": "name3",
+                "Comment": "comment3",
+                "DateTime": "0001-01-01T00:00:00"
+              },
+              {
+                "Id": 4,
+                "Name": "name4",
+                "Comment": "comment4",
+                "DateTime": "0001-01-01T00:00:00"
+              },
+              {
+                "Id": 5,
+                "Name": "name5",
+                "Comment": "comment5",
+                "DateTime": "0001-01-01T00:00:00"
+              }
+            ]
+            """;
+        Assert.Equal(expected, jsonString);
     }
 
     [Fact]
@@ -102,9 +132,48 @@ public class PaginatedListTests
         // Act
         var options = new JsonSerializerOptions() { WriteIndented = true };
         string jsonString = JsonSerializer.Serialize(list, options);
-        string contents = File.ReadAllText(_pathToCommonTestFiles + "PaginatedResultSample.json");
 
         // Assert
-        Assert.Equal(contents, jsonString);
+        const string expected = """
+            {
+              "page": 2,
+              "size": 5,
+              "pages": 24625,
+              "rows": 123123,
+              "items": [
+                {
+                  "Id": 1,
+                  "Name": "name1",
+                  "Comment": "comment1",
+                  "DateTime": "0001-01-01T00:00:00"
+                },
+                {
+                  "Id": 2,
+                  "Name": "name2",
+                  "Comment": "comment2",
+                  "DateTime": "0001-01-01T00:00:00"
+                },
+                {
+                  "Id": 3,
+                  "Name": "name3",
+                  "Comment": "comment3",
+                  "DateTime": "0001-01-01T00:00:00"
+                },
+                {
+                  "Id": 4,
+                  "Name": "name4",
+                  "Comment": "comment4",
+                  "DateTime": "0001-01-01T00:00:00"
+                },
+                {
+                  "Id": 5,
+                  "Name": "name5",
+                  "Comment": "comment5",
+                  "DateTime": "0001-01-01T00:00:00"
+                }
+              ]
+            }
+            """;
+        Assert.Equal(expected, jsonString);
     }
 }
