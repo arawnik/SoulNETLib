@@ -12,7 +12,6 @@
     <File Path=".github/ISSUE_TEMPLATE/feature_request.md" />
   </Folder>
   <Folder Name="/GitHub/Workflows/">
-    <File Path=".github/workflows/codeql-analysis.yml" />
     <File Path=".github/workflows/publish.yml" />
   </Folder>
   <Folder Name="/Markdown/">
