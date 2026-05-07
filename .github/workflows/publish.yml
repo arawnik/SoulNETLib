@@ -6,6 +6,10 @@ on:
       - main # Default release branch
   workflow_dispatch: # Manual trigger
 
+permissions:
+  contents: read
+  packages: write
+
 jobs:
   publish:
     name: publish nugets
@@ -35,7 +39,7 @@ jobs:
         run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj --output nuget-packages --configuration Release
 
       - name: Push packages to GitHub Packages
-        run: dotnet nuget push **/*.nupkg --source https://nuget.pkg.github.com/arawnik/index.json --api-key ${{ secrets.PACKAGES_TOKEN }} --skip-duplicate
+        run: dotnet nuget push "nuget-packages/*.nupkg" --source https://nuget.pkg.github.com/arawnik/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
 
       - name: Push packages to NuGet.org
         env:
