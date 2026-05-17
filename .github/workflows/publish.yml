@@ -38,6 +38,9 @@ jobs:
       - name: Pack Clean.Application
         run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj --output nuget-packages --configuration Release
 
+      - name: Pack Blazor
+        run: dotnet pack src/SoulNETLib.Blazor/SoulNETLib.Blazor.csproj --output nuget-packages --configuration Release
+
       - name: Push packages to GitHub Packages
         run: dotnet nuget push "nuget-packages/*.nupkg" --source https://nuget.pkg.github.com/arawnik/index.json --api-key ${{ secrets.GITHUB_TOKEN }} --skip-duplicate
 

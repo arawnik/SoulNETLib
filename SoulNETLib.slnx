@@ -33,11 +33,13 @@
     <Project Path="src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj" />
     <Project Path="src/SoulNETLib.Clean.Domain/SoulNETLib.Clean.Domain.csproj" />
     <Project Path="src/SoulNETLib.Clean.Infrastructure/SoulNETLib.Clean.Infrastructure.csproj" />
+    <Project Path="src/SoulNETLib.Blazor/SoulNETLib.Blazor.csproj" />
     <Project Path="src/SoulNETLib.Common/SoulNETLib.Common.csproj" />
     <Project Path="src/SoulNETLib.EFCore/SoulNETLib.EFCore.csproj" />
   </Folder>
   <Folder Name="/test/">
     <File Path="test/.editorconfig" />
+    <Project Path="test/SoulNETLib.Blazor.Tests/SoulNETLib.Blazor.Tests.csproj" />
     <Project Path="test/SoulNETLib.Clean.Application.Tests/SoulNETLib.Clean.Application.Tests.csproj" />
     <Project Path="test/SoulNETLib.EFCore.Tests/SoulNETLib.EFCore.Tests.csproj" />
     <Project Path="test/SoulNETLib.Tests/SoulNETLib.Tests.csproj" />

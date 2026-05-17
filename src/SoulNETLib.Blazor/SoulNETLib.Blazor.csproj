@@ -1,0 +1,9 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageId>SoulNETLib.Blazor</PackageId>
+    <PackageDescription>Common Blazor utilities: field identifier resolution, server-side validation bridging, and CSS framework integration</PackageDescription>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" />
+  </ItemGroup>
+</Project>
