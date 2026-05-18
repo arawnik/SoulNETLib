@@ -42,10 +42,15 @@ public Task<Result<Guid>> CreateProject(string name)
 ```csharp
 using SoulNETLib.Clean.Domain;
 
-// Create typed errors
-var notFound = Error.NotFound<Guid>(entityId);
+// Simple errors
+var notFound = Error.NotFound("Recipe", recipeId);     // "Recipe with ID {id} not found."
 var validation = Error.Validation("email", "Invalid email format");
-var business = Error.BusinessRule("InsufficientFunds", "Account balance too low");
+var business = Error.BusinessRule("Account balance too low");
+
+// Format template overloads (for localized/parameterized messages)
+var notFound2 = Error.NotFound("{0} with ID {1} not found.", entityName, id);
+var validation2 = Error.Validation("Name", "'{0}' must be between {1} and {2} characters.", fieldName, 1, 200);
+var business2 = Error.BusinessRule("{0} has already been closed.", entityName);
 
 // Errors convert implicitly to Results
 Result result = Error.NotFound();
@@ -89,6 +94,23 @@ public class CreateOrderHandler(IOrderRepository orders, IUnitOfWork unitOfWork)
     }
 }
 ```
+
+## Error Factory Methods
+
+| Method | Field | Use case |
+|--------|-------|----------|
+| `Error.NotFound(message?)` | — | Generic not-found with optional message |
+| `Error.NotFound(template, params args)` | — | Formatted not-found (localization-friendly) |
+| `Error.NotFound<TKey>(type, key)` | — | Type+key not-found ("Recipe with ID {key} not found.") |
+| `Error.Validation(field, message)` | ✓ | Field-specific validation error |
+| `Error.Validation(field, template, params args)` | ✓ | Formatted field validation (localization-friendly) |
+| `Error.Validation(message)` | — | General validation error (no field) |
+| `Error.BusinessRule(message)` | — | Domain rule violation |
+| `Error.BusinessRule(template, params args)` | — | Formatted business rule (localization-friendly) |
+| `Error.InvalidData(message)` | — | Data processing error |
+| `Error.FromException(ex, code?)` | — | Convert exception to error |
+
+The `template + params args` overloads use `string.Format(CultureInfo.InvariantCulture, ...)` internally, making them ideal for resource-file-based localization patterns.
 
 ## Error Codes
 

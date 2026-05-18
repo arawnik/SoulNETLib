@@ -1,8 +1,8 @@
-﻿using System.ComponentModel;
+using System.ComponentModel;
 using System.Runtime.Serialization;
-using SoulNETLibTests.Common.TestData.Models;
+using SoulNETLib.Testing.TestData.Models;
 
-namespace SoulNETLibTests.Common.TestData.Enums;
+namespace SoulNETLib.Testing.TestData.Enums;
 
 /// <summary>
 /// Sample enum values. Series:

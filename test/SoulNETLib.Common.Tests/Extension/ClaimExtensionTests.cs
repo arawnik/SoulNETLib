@@ -1,9 +1,9 @@
-﻿using System.Security.Claims;
+using System.Security.Claims;
 using System.Security.Principal;
 using SoulNETLib.Common.Extension;
-using SoulNETLibTests.Common.TestData.Models;
+using SoulNETLib.Testing.TestData.Models;
 
-namespace SoulNETLib.Tests.Extension;
+namespace SoulNETLib.Common.Tests.Extension;
 
 public class ClaimExtensionTests
 {
