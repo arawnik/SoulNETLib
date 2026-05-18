@@ -1,6 +1,6 @@
 using SoulNETLib.Common.Extension;
 
-namespace SoulNETLib.Tests.Extension;
+namespace SoulNETLib.Common.Tests.Extension;
 
 public class DateTimeExtensionTests
 {

@@ -12,10 +12,12 @@ src/
   SoulNETLib.Common/              — General-purpose extension methods
   SoulNETLib.EFCore/              — EF Core extension methods and collection helpers
 test/
+  SoulNETLib.Clean.Domain.Tests/
   SoulNETLib.Clean.Application.Tests/
+  SoulNETLib.Common.Tests/
   SoulNETLib.EFCore.Tests/
-  SoulNETLib.Tests/
-  SoulNETLibTests.Common/         — Shared test utilities
+  SoulNETLib.Blazor.Tests/
+  SoulNETLib.Testing/             — Shared test fixtures and data
 ```
 
 ## Core design principles

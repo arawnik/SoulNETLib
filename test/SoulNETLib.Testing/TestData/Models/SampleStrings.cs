@@ -1,4 +1,4 @@
-﻿namespace SoulNETLibTests.Common.TestData.Models;
+namespace SoulNETLib.Testing.TestData.Models;
 
 public static class SampleStrings
 {

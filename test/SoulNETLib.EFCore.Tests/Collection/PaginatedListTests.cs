@@ -1,7 +1,7 @@
-﻿using System.Text.Json;
+using System.Text.Json;
 using SoulNETLib.Common.Extension;
 using SoulNETLib.EFCore.Collection;
-using SoulNETLibTests.Common.TestData.Models;
+using SoulNETLib.Testing.TestData.Models;
 
 namespace SoulNETLib.EFCore.Tests.Collection;
 

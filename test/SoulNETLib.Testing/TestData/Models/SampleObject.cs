@@ -1,6 +1,6 @@
-﻿using System.Text.Json.Serialization;
+using System.Text.Json.Serialization;
 
-namespace SoulNETLibTests.Common.TestData.Models;
+namespace SoulNETLib.Testing.TestData.Models;
 
 #pragma warning disable CA1708 // Identifiers should differ by more than case
 public class SampleObject

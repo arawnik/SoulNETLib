@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\SoulNETLib.Common\SoulNETLib.Common.csproj" />
-    <ProjectReference Include="..\..\src\SoulNETLib.EFCore\SoulNETLib.EFCore.csproj" />
     <ProjectReference Include="..\SoulNETLib.Testing\SoulNETLib.Testing.csproj" />
   </ItemGroup>
 

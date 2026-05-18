@@ -1,8 +1,8 @@
-﻿using SoulNETLib.Common.Extension;
-using SoulNETLibTests.Common.TestData.Enums;
-using SoulNETLibTests.Common.TestData.Models;
+using SoulNETLib.Common.Extension;
+using SoulNETLib.Testing.TestData.Enums;
+using SoulNETLib.Testing.TestData.Models;
 
-namespace SoulNETLib.Tests.Extension;
+namespace SoulNETLib.Common.Tests.Extension;
 
 public class EnumExtensionTests
 {
