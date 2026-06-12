@@ -42,6 +42,7 @@
     <Project Path="test/SoulNETLib.Testing/SoulNETLib.Testing.csproj" />
     <Project Path="test/SoulNETLib.Clean.Domain.Tests/SoulNETLib.Clean.Domain.Tests.csproj" />
     <Project Path="test/SoulNETLib.Clean.Application.Tests/SoulNETLib.Clean.Application.Tests.csproj" />
+    <Project Path="test/SoulNETLib.Clean.Infrastructure.Tests/SoulNETLib.Clean.Infrastructure.Tests.csproj" />
     <Project Path="test/SoulNETLib.Blazor.Tests/SoulNETLib.Blazor.Tests.csproj" />
     <Project Path="test/SoulNETLib.Common.Tests/SoulNETLib.Common.Tests.csproj" />
     <Project Path="test/SoulNETLib.EFCore.Tests/SoulNETLib.EFCore.Tests.csproj" />

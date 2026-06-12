@@ -38,6 +38,9 @@ jobs:
       - name: Pack Clean.Application
         run: dotnet pack src/SoulNETLib.Clean.Application/SoulNETLib.Clean.Application.csproj --output nuget-packages --configuration Release
 
+      - name: Pack Clean.Infrastructure
+        run: dotnet pack src/SoulNETLib.Clean.Infrastructure/SoulNETLib.Clean.Infrastructure.csproj --output nuget-packages --configuration Release
+
       - name: Pack Blazor
         run: dotnet pack src/SoulNETLib.Blazor/SoulNETLib.Blazor.csproj --output nuget-packages --configuration Release
 
